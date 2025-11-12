@@ -62,7 +62,7 @@ qa_chain = RetrievalQA.from_chain_type(
     return_source_documents=True
 )
 
-query = "What does the GPS guide say about waypoint accuracy?"
+query = "What are the writing center hours?"
 response = qa_chain({"query": query})
 
 print("Answer:", response["result"])
