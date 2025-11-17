@@ -2,15 +2,15 @@ import chromadb # for vector db
 import re # for text cleaning
 from langchain_ollama import OllamaEmbeddings
 from nltk.tokenize import word_tokenize # for chunking
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_chroma import Chroma
 from langchain.chains import RetrievalQA
-import ollama
+from langchain_ollama import ChatOllama
 
 #### PDF READER ####
 # start by extracting text from the pdf for the GPS guide
-loader = PyMuPDFLoader("example.pdf")
+loader = PyMuPDFLoader("Binder.pdf")
 docs = loader.load()
 
 
@@ -48,13 +48,13 @@ db = Chroma.from_documents(
 
 # writes to folder
 
-db.persist() 
+# db.persist() 
 
 retriever = db.as_retriever(search_kwargs={"k": 3})
 
 ##### set up local model ######
 
-llm = ollama(model="llama3.2")
+llm = ChatOllama(model="llama3.2")
 
 qa_chain = RetrievalQA.from_chain_type(
     llm=llm,
