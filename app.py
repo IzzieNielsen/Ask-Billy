@@ -12,7 +12,7 @@ if "messages" not in st.session_state:
 
 #chat display
 for sender, msg in st.session_state.messages:
-    st.chat_messages(sender).write(msg)
+    st.chat_message(sender).write(msg)
 
 #get user input
 user_input = st.chat_input("Ask a question")
@@ -21,7 +21,7 @@ if user_input:
     st.session_state.messages.append(("user", user_input))
     st.chat_message ("user").write(user_input)
 
-    with st.spinner("in prog"):
+    with st.spinner("thinking"):
         result = backend.qa_chain({"query": user_input})
         answer = result ["result"]
         src = result["source_documents"]
