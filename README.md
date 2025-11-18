@@ -17,7 +17,7 @@ pip3 install chromadb re langchain_ollama nltk langchain langchain_community lan
 1. Clone git repository
 2. Install all dependencies
 3. Place data files in directory
-     * RSP 2025-2026 Binder ALL.pdf
+     * Binder.pdf
   
 
  
