@@ -4,7 +4,10 @@ import text_processor as backend
 #page setup
 st.set_page_config(page_title = "ASK BILLY", layout = "wide")
 st.title("Ask Billy")
-st.write("Chatbot to...")
+st.write("Ask me questions about Creighton University!")
+
+#image
+st.image("creightonlogo.png", width = 200)
 
 #chat history
 if "messages" not in st.session_state:
