@@ -66,5 +66,26 @@ pip3 install -r requirements.txt
 └── requirements.txt                              # required libraries
 ```
 
+## Technical Details
+
+### Data Processing
+* **PDF Reader:** uses langchain PyMuPDFLoader to process the RSP Binder
+* **Text Cleaning:** removes ASCII character, sequences of one or more whitespace characters, and leading or trailing whitespaces
+* **Chunks:** creates chunks around 1,000 characters long with around 100 characters of overlap to preserve context
+        * Tries to break at natural boundaries first 
+  
+### Embedding and Vector DB
+* **Embedding Method:** nomic-embed-text from Ollama to transform chunks into numerical vectors
+* **Database:** stores vector embeddings, metadata, and chunk text into the langchain chroma db
+
+### Model Creation
+* **Model:** Ollama 3.2 for robust performance and small size to run quickly locally
+* **Location:** model runs locally for data privacy
+
+### Frontend
+* **Streamlit:** library for simple chatbot design
+* **App.py:** contains model frontend information
+* **Query Entry:** textbox for query input
+
 ## Authors
 Developed by: Izzie Nielsen, Becca Borgmeier, and Danielle Carrol
