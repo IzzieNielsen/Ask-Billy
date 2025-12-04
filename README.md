@@ -32,7 +32,11 @@ pip3 install -r requirements.txt
 ```
 3. Place data files in directory
      * Binder.pdf
-4. Access the application
+4. Run program in terminal
+```bash
+streamlit run app.py
+```
+5. Access the application
      * Open browser to http://localhost:8501
      * Model may take a few minutes to compile (<5 minutes)
      * Start asking questions!
